@@ -81,7 +81,9 @@ export default function Navbar() {
             </ul>
           </div>
           {/* image */}
+          <Link to='/login'>
           <button className="btn btn-sm lg:btn-md bg-[#00c1f1] text-white text-lg font-semibold">Login</button>
+          </Link>
         </div>
       </div>
     </div>

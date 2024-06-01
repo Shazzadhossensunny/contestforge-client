@@ -7,7 +7,12 @@
     "prize": 500,
     "taskSubmission": "Submit up to 3 high-resolution photos capturing sunsets.",
     "contestType": "Image Design Contests",
-    "contestDeadline": "2024-06-30"
+    "contestDeadline": "2024-06-30",
+    "participationCount": 350,
+    "contestWinner": {
+      "name": "John Doe",
+      "image": "https://example.com/images/john-doe.jpg"
+    }
   },
   {
     "contestName": "Digital Marketing Strategy Challenge",
@@ -17,7 +22,9 @@
     "prize": 1000,
     "taskSubmission": "Submit a detailed digital marketing plan including social media, SEO, and PPC strategies.",
     "contestType": "Marketing Strategy",
-    "contestDeadline": "2024-07-15"
+    "contestDeadline": "2024-07-15",
+    "participationCount": 500,
+    "contestWinner": null
   },
   {
     "contestName": "Creative Writing Contest",
@@ -27,7 +34,12 @@
     "prize": 300,
     "taskSubmission": "Submit a short story of 2000-5000 words.",
     "contestType": "Article Writing",
-    "contestDeadline": "2024-06-20"
+    "contestDeadline": "2024-06-20",
+    "participationCount": 200,
+    "contestWinner": {
+      "name": "Jane Smith",
+      "image": "https://example.com/images/jane-smith.jpg"
+    }
   },
   {
     "contestName": "Gaming Review Contest",
@@ -37,7 +49,9 @@
     "prize": 0,
     "taskSubmission": "Submit a review of 1000-2000 words, including gameplay experience, graphics, and overall rating.",
     "contestType": "Gaming Review",
-    "contestDeadline": "2024-06-25"
+    "contestDeadline": "2024-06-25",
+    "participationCount": 150,
+    "contestWinner": null
   },
   {
     "contestName": "Startup Business Idea Contest",
@@ -47,7 +61,9 @@
     "prize": 5000,
     "taskSubmission": "Submit a business plan document outlining your idea, target market, and financial projections.",
     "contestType": "Business Idea Concerts",
-    "contestDeadline": "2024-07-10"
+    "contestDeadline": "2024-07-10",
+    "participationCount": 80,
+    "contestWinner": null
   },
   {
     "contestName": "Book Review Competition",
@@ -57,7 +73,9 @@
     "prize": 0,
     "taskSubmission": "Submit a review of 500-1000 words, focusing on the book's plot, characters, and your personal insights.",
     "contestType": "Book Review",
-    "contestDeadline": "2024-06-18"
+    "contestDeadline": "2024-06-18",
+    "participationCount": 220,
+    "contestWinner": null
   },
   {
     "contestName": "Movie Review Challenge",
@@ -67,6 +85,8 @@
     "prize": 200,
     "taskSubmission": "Submit a review of 800-1500 words, covering the plot, performances, and your overall impression.",
     "contestType": "Movie Review",
-    "contestDeadline": "2024-07-05"
+    "contestDeadline": "2024-07-05",
+    "participationCount": 180,
+    "contestWinner": null
   }
 ]
