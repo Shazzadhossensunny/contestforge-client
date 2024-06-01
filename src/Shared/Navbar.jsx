@@ -1,6 +1,20 @@
 import { Link, NavLink } from "react-router-dom";
+import UseAuth from "../Hooks/UseAuth";
+import { toast } from "react-toastify";
 
 export default function Navbar() {
+    const {user, logOut} = UseAuth()
+    const handleLogOut = () => {
+        logOut()
+        .then(()=>{
+            toast.success('Successfully logout');
+
+        })
+        .catch((error)=>{
+            console.log(error.message)
+        })
+    }
+
   return (
     <div className="bg-[#00c1f11f]">
       <div className="navbar container mx-auto">
@@ -50,7 +64,8 @@ export default function Navbar() {
         </div>
         <div className="navbar-end space-x-3">
           {/* image */}
-          <div className="dropdown dropdown-end">
+          {
+            user && <div className="dropdown dropdown-end">
             <div
               tabIndex={0}
               role="button"
@@ -59,7 +74,7 @@ export default function Navbar() {
               <div className="w-10 rounded-full">
                 <img
                   alt="Tailwind CSS Navbar component"
-                  src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
+                  src={user?.photoURL || "https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"}
                 />
               </div>
             </div>
@@ -76,10 +91,12 @@ export default function Navbar() {
                 <Link to="/dashboard">Dashboard</Link>
               </li>
               <li>
-                <a>Logout</a>
+                <button onClick={handleLogOut} className="btn btn-md btn-primary">Logout</button>
               </li>
             </ul>
           </div>
+          }
+
           {/* image */}
           <Link to='/login'>
           <button className="btn btn-sm lg:btn-md bg-[#00c1f1] text-white text-lg font-semibold">Login</button>
