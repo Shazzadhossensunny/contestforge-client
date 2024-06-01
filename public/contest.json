@@ -1,0 +1,72 @@
+[
+  {
+    "contestName": "Sunset Photography Contest",
+    "image": "https://i.ibb.co/chfDCP4/sunset.jpg",
+    "contestDescription": "Capture the most stunning sunset photos and stand a chance to win amazing prizes.",
+    "contestPrice": 10,
+    "prize": 500,
+    "taskSubmission": "Submit up to 3 high-resolution photos capturing sunsets.",
+    "contestType": "Image Design Contests",
+    "contestDeadline": "2024-06-30"
+  },
+  {
+    "contestName": "Digital Marketing Strategy Challenge",
+    "image": "https://i.ibb.co/v1pJnRs/digital.jpg",
+    "contestDescription": "Develop a comprehensive digital marketing strategy for a hypothetical company.",
+    "contestPrice": 0,
+    "prize": 1000,
+    "taskSubmission": "Submit a detailed digital marketing plan including social media, SEO, and PPC strategies.",
+    "contestType": "Marketing Strategy",
+    "contestDeadline": "2024-07-15"
+  },
+  {
+    "contestName": "Creative Writing Contest",
+    "image": "https://i.ibb.co/0rtDyb0/article.jpg",
+    "contestDescription": "Write an original short story on the theme 'New Beginnings'.",
+    "contestPrice": 5,
+    "prize": 300,
+    "taskSubmission": "Submit a short story of 2000-5000 words.",
+    "contestType": "Article Writing",
+    "contestDeadline": "2024-06-20"
+  },
+  {
+    "contestName": "Gaming Review Contest",
+    "image": "https://i.ibb.co/wrtkD7v/gaming.jpg",
+    "contestDescription": "Write a detailed review of your favorite game released in the past year.",
+    "contestPrice": 0,
+    "prize": 0,
+    "taskSubmission": "Submit a review of 1000-2000 words, including gameplay experience, graphics, and overall rating.",
+    "contestType": "Gaming Review",
+    "contestDeadline": "2024-06-25"
+  },
+  {
+    "contestName": "Startup Business Idea Contest",
+    "image": "https://i.ibb.co/Ths9DV7/idea.jpg",
+    "contestDescription": "Pitch your innovative business idea and win seed funding to kickstart your startup.",
+    "contestPrice": 20,
+    "prize": 5000,
+    "taskSubmission": "Submit a business plan document outlining your idea, target market, and financial projections.",
+    "contestType": "Business Idea Concerts",
+    "contestDeadline": "2024-07-10"
+  },
+  {
+    "contestName": "Book Review Competition",
+    "image": "https://i.ibb.co/tcsgNXq/book.jpg",
+    "contestDescription": "Write a compelling review of a recently published book of your choice.",
+    "contestPrice": 0,
+    "prize": 0,
+    "taskSubmission": "Submit a review of 500-1000 words, focusing on the book's plot, characters, and your personal insights.",
+    "contestType": "Book Review",
+    "contestDeadline": "2024-06-18"
+  },
+  {
+    "contestName": "Movie Review Challenge",
+    "image": "https://i.ibb.co/8KVnCfk/movie.jpg",
+    "contestDescription": "Review the latest blockbuster and get a chance to win exciting prizes.",
+    "contestPrice": 3,
+    "prize": 200,
+    "taskSubmission": "Submit a review of 800-1500 words, covering the plot, performances, and your overall impression.",
+    "contestType": "Movie Review",
+    "contestDeadline": "2024-07-05"
+  }
+]

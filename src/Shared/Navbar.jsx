@@ -2,7 +2,7 @@ import { Link, NavLink } from "react-router-dom";
 
 export default function Navbar() {
   return (
-    <div>
+    <div className="bg-[#00c1f11f]">
       <div className="navbar container mx-auto">
         <div className="navbar-start">
           <div className="dropdown">
@@ -34,12 +34,12 @@ export default function Navbar() {
               </li>
             </ul>
           </div>
-          <Link to="/" className="text-3xl font-bold">
+          <Link to="/" className="tex-lg lg:text-3xl font-bold">
             ContestForge
           </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal px-1">
+          <ul className="menu menu-horizontal px-1 space-x-6">
             <li className="text-xl font-semibold">
               <NavLink to="/">Home</NavLink>
             </li>
@@ -81,7 +81,7 @@ export default function Navbar() {
             </ul>
           </div>
           {/* image */}
-          <button className="btn">Login</button>
+          <button className="btn btn-sm lg:btn-md bg-[#00c1f1] text-white text-lg font-semibold">Login</button>
         </div>
       </div>
     </div>
