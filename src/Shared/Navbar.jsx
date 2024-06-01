@@ -83,12 +83,12 @@ export default function Navbar() {
               className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52"
             >
               <li>
-                <a>
-                  Profile
-                </a>
+                <p>
+                 {user?.displayName || "No name found"}
+                </p>
               </li>
               <li>
-                <Link to="/dashboard">Dashboard</Link>
+                <Link to="dashboard">Dashboard</Link>
               </li>
               <li>
                 <button onClick={handleLogOut} className="btn btn-md btn-primary">Logout</button>
