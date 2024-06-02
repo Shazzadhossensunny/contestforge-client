@@ -7,6 +7,7 @@ import Register from "../Pages/Register.jsx";
 import Dashboard from "../Root/Dashboard.jsx";
 import AddContest from "../Pages/Dhasboard/AddContest.jsx";
 import AllContest from "../Pages/AllContest.jsx";
+import ContentDetail from "../Pages/ContentDetail.jsx";
 
 export const router = createBrowserRouter([
   {
@@ -22,6 +23,11 @@ export const router = createBrowserRouter([
           path: "/allContest",
           element: <AllContest></AllContest>
 
+        },
+        {
+          path: "/contentDetail/:id",
+          element: <ContentDetail></ContentDetail>,
+          loader: ({params}) => fetch(`http://localhost:5000/addContest/${params.id}`)
         },
         {
             path: "/login",
