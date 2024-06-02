@@ -8,45 +8,52 @@ import {
 import { useForm } from "react-hook-form";
 import UseAuth from "../Hooks/UseAuth";
 import { toast } from "react-toastify";
+import UseAxiosCommon from "../Hooks/UseAxiosCommon";
 
 export default function Register() {
   const [disabled, setDisabled] = useState(true);
-  const { createUser, updateUserProfile, user, setUser} = UseAuth();
+  const { createUser, updateUserProfile, user, setUser } = UseAuth();
+  const axiosCommon = UseAxiosCommon();
   const {
     register,
     handleSubmit,
     reset,
     formState: { errors },
   } = useForm();
- const navigate = useNavigate();
- const location = useLocation();
- useEffect(() => {
+  const navigate = useNavigate();
+  const location = useLocation();
+  useEffect(() => {
     loadCaptchaEnginge(6);
   }, []);
 
- useEffect(() => {
+  useEffect(() => {
     if (user) {
       navigate("/");
     }
   }, [navigate, user]);
-const from = location.state || "/";
-console.log(from)
-
-
-
+  const from = location.state || "/";
+  console.log(from);
 
   const onSubmit = (data) => {
     createUser(data.email, data.password)
       .then((result) => {
         updateUserProfile(data.name, data.photo).then(() => {
-          setUser({
-            ...result?.user,
-            photoURL: data.photo,
-            displayName: data.name,
+          const userInfo = {
+            name: data.name,
+            email: data.email,
+            image: data.photo,
+          };
+          axiosCommon.post("/users", userInfo).then((res) => {
+            if (res.data.insertedId) {
+              toast.success("Successfully Register");
+              navigate(from, { replace: true });
+              setUser({
+                ...result?.user,
+                photoURL: data.photo,
+                displayName: data.name,
+              });
+            }
           });
-          toast.success('Successfully Register');
-          navigate(from, { replace: true });
-
         });
       })
       .catch((error) => {

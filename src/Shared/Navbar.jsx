@@ -65,7 +65,8 @@ export default function Navbar() {
         <div className="navbar-end space-x-3">
           {/* image */}
           {
-            user && <div className="dropdown dropdown-end">
+            user ?
+            <div className="dropdown dropdown-end">
             <div
               tabIndex={0}
               role="button"
@@ -95,12 +96,14 @@ export default function Navbar() {
               </li>
             </ul>
           </div>
-          }
-
-          {/* image */}
+          :
           <Link to='/login'>
           <button className="btn btn-sm lg:btn-md bg-[#00c1f1] text-white text-lg font-semibold">Login</button>
           </Link>
+          }
+
+          {/* image */}
+
         </div>
       </div>
     </div>

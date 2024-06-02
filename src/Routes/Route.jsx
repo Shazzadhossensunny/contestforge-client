@@ -8,6 +8,7 @@ import Dashboard from "../Root/Dashboard.jsx";
 import AddContest from "../Pages/Dhasboard/AddContest.jsx";
 import AllContest from "../Pages/AllContest.jsx";
 import ContentDetail from "../Pages/ContentDetail.jsx";
+import ManageUser from "../Pages/Dhasboard/ManageUser.jsx";
 
 export const router = createBrowserRouter([
   {
@@ -47,6 +48,11 @@ export const router = createBrowserRouter([
         {
             path: 'addContest',
             element: <AddContest></AddContest>
+        },
+        // admin
+        {
+          path: 'manageUser',
+          element: <ManageUser></ManageUser>
         }
 
     ]
