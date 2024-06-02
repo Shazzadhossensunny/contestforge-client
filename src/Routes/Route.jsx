@@ -6,6 +6,7 @@ import Login from "../Pages/Login.jsx";
 import Register from "../Pages/Register.jsx";
 import Dashboard from "../Root/Dashboard.jsx";
 import AddContest from "../Pages/Dhasboard/AddContest.jsx";
+import AllContest from "../Pages/AllContest.jsx";
 
 export const router = createBrowserRouter([
   {
@@ -16,6 +17,11 @@ export const router = createBrowserRouter([
         {
             path: "/",
             element: <Home></Home>
+        },
+        {
+          path: "/allContest",
+          element: <AllContest></AllContest>
+
         },
         {
             path: "/login",
