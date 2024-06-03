@@ -1,6 +1,35 @@
+
+import UseAxiosCommon from "../../Hooks/UseAxiosCommon";
 import bannerImg from "../../assets/banner.jpg";
+import { useState } from "react";
+import SearchContestCard from "../../components/SearchContestCard";
+
 
 export default function Banner() {
+  const [searchTerm, setSearchTerm] = useState('');
+
+  const [results, setResults] = useState([]);
+  const axiosCommon = UseAxiosCommon()
+  // const { data: contests = [], refetch } = useQuery({
+  //   queryKey: ['contest', searchTerm],
+  //   queryFn: async () => {
+  //     const res = await axiosCommon.get(`/search?q=${searchTerm}`);
+  //     return res.data;
+  //   },
+  //   enabled: !!searchTerm,
+  // });
+
+  // const handleSearch = () => {
+  //   refetch();
+  // };
+
+  const handleSearch = async()=>{
+    const res = await axiosCommon.get(`/search?q=${searchTerm}`)
+    setResults(res.data)
+  }
+
+
+  console.log(results)
   return (
     <div>
       <div className="h-[600px] relative">
@@ -15,16 +44,30 @@ export default function Banner() {
           </p>
           <div className="join">
             <input
+            value={searchTerm}
+            onChange={(e)=> setSearchTerm(e.target.value)}
               type="text"
               placeholder="Search...."
               className="input input-bordered join-item"
             />
-            <button className="btn bg-[#00c1f1] join-item text-white">
+            <button onClick={handleSearch} className="btn bg-[#00c1f1] join-item text-white">
               Search
             </button>
           </div>
         </div>
       </div>
+      {
+        results.length > 0 && <div className="container mx-auto my-24">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {
+          results.map((result)=> <SearchContestCard key={result._id} result={result}></SearchContestCard>)
+        }
+
+        </div>
+
+      </div>
+      }
+
     </div>
   );
 }

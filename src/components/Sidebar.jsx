@@ -6,12 +6,13 @@ import useRole from "../Hooks/useRole";
 
 export default function Sidebar() {
   const [isActive, setActive] = useState(false);
-  const [role] = useRole();
+  const [role, isLoading] = useRole();
 
   // Sidebar Responsive Handler
   const handleToggle = () => {
     setActive(!isActive);
   };
+  if(isLoading) return
   return (
     <>
       {/* Small Screen Navbar */}
@@ -60,7 +61,7 @@ export default function Sidebar() {
             {/*  Menu Items */}
             <nav>
               {/* User */}
-              {role === " " && (
+              {role === "User" && (
                 <>
                   <NavLink
                     to="/dashboard/participated"
