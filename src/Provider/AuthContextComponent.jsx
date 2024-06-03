@@ -34,6 +34,7 @@ export default function AuthContextComponent({ children }) {
 
   // google provider
   const googleSignIn = () => {
+    setLoading(true);
     return signInWithPopup(auth, googleProvider);
   };
 

@@ -1,12 +1,13 @@
 import { useState } from "react";
-
 import { AiOutlineBars } from "react-icons/ai";
-
 import { NavLink } from "react-router-dom";
 import { Link } from "react-router-dom";
+import useRole from "../Hooks/useRole";
 
 export default function Sidebar() {
   const [isActive, setActive] = useState(false);
+  const [role] = useRole();
+
   // Sidebar Responsive Handler
   const handleToggle = () => {
     setActive(!isActive);
@@ -46,9 +47,9 @@ export default function Sidebar() {
         <div>
           <div>
             <div className="w-full hidden md:flex px-4 py-2 shadow-lg rounded-lg justify-center items-center bg-[#00c1f11f] mx-auto">
-            <Link to="/" className="tex-lg lg:text-3xl font-bold">
-            ContestForge
-          </Link>
+              <Link to="/" className="tex-lg lg:text-3xl font-bold">
+                ContestForge
+              </Link>
             </div>
           </div>
 
@@ -59,89 +60,123 @@ export default function Sidebar() {
             {/*  Menu Items */}
             <nav>
               {/* User */}
-              <NavLink
-                to="/dashboard/participated"
-                className={({ isActive }) =>
-                  `flex items-center px-4 py-2 my-5  transition-colors duration-300 transform  hover:bg-gray-300   hover:text-gray-700 ${
-                    isActive ? "bg-gray-300  text-gray-700" : "text-gray-600"
-                  }`
-                }
-              >
-                <span className="mx-4 font-medium">My Participated Contest</span>
-              </NavLink>
-              <NavLink
-                to="/dashboard/winningContest"
-                className={({ isActive }) =>
-                  `flex items-center px-4 py-2 my-5  transition-colors duration-300 transform  hover:bg-gray-300   hover:text-gray-700 ${
-                    isActive ? "bg-gray-300  text-gray-700" : "text-gray-600"
-                  }`
-                }
-              >
-                <span className="mx-4 font-medium">My Participated Contest</span>
-              </NavLink>
-              <NavLink
-                to="/dashboard/myProfile"
-                className={({ isActive }) =>
-                  `flex items-center px-4 py-2 my-5  transition-colors duration-300 transform  hover:bg-gray-300   hover:text-gray-700 ${
-                    isActive ? "bg-gray-300  text-gray-700" : "text-gray-600"
-                  }`
-                }
-              >
-                <span className="mx-4 font-medium">My Profile</span>
-              </NavLink>
+              {role === " " && (
+                <>
+                  <NavLink
+                    to="/dashboard/participated"
+                    className={({ isActive }) =>
+                      `flex items-center px-4 py-2 my-5  transition-colors duration-300 transform  hover:bg-gray-300   hover:text-gray-700 ${
+                        isActive
+                          ? "bg-gray-300  text-gray-700"
+                          : "text-gray-600"
+                      }`
+                    }
+                  >
+                    <span className="mx-4 font-medium">
+                      My Participated Contest
+                    </span>
+                  </NavLink>
+                  <NavLink
+                    to="/dashboard/winningContest"
+                    className={({ isActive }) =>
+                      `flex items-center px-4 py-2 my-5  transition-colors duration-300 transform  hover:bg-gray-300   hover:text-gray-700 ${
+                        isActive
+                          ? "bg-gray-300  text-gray-700"
+                          : "text-gray-600"
+                      }`
+                    }
+                  >
+                    <span className="mx-4 font-medium">
+                      My Participated Contest
+                    </span>
+                  </NavLink>
+                  <NavLink
+                    to="/dashboard/myProfile"
+                    className={({ isActive }) =>
+                      `flex items-center px-4 py-2 my-5  transition-colors duration-300 transform  hover:bg-gray-300   hover:text-gray-700 ${
+                        isActive
+                          ? "bg-gray-300  text-gray-700"
+                          : "text-gray-600"
+                      }`
+                    }
+                  >
+                    <span className="mx-4 font-medium">My Profile</span>
+                  </NavLink>
+                </>
+              )}
 
               {/* Creator */}
-              <NavLink
-                to="/dashboard/addContest"
-                className={({ isActive }) =>
-                  `flex items-center px-4 py-2 my-5  transition-colors duration-300 transform  hover:bg-gray-300   hover:text-gray-700 ${
-                    isActive ? "bg-gray-300  text-gray-700" : "text-gray-600"
-                  }`
-                }
-              >
-                <span className="mx-4 font-medium">Add Contest</span>
-              </NavLink>
-              <NavLink
-                to="/dashboard/myCreatedContest"
-                className={({ isActive }) =>
-                  `flex items-center px-4 py-2 my-5  transition-colors duration-300 transform  hover:bg-gray-300   hover:text-gray-700 ${
-                    isActive ? "bg-gray-300  text-gray-700" : "text-gray-600"
-                  }`
-                }
-              >
-                <span className="mx-4 font-medium">My Created Contest</span>
-              </NavLink>
-              <NavLink
-                to="/dashboard/contestSubmit"
-                className={({ isActive }) =>
-                  `flex items-center px-4 py-2 my-5  transition-colors duration-300 transform  hover:bg-gray-300   hover:text-gray-700 ${
-                    isActive ? "bg-gray-300  text-gray-700" : "text-gray-600"
-                  }`
-                }
-              >
-                <span className="mx-4 font-medium">Contest Submitted </span>
-              </NavLink>
+              {role === "Creator" && (
+                <>
+                  <NavLink
+                    to="/dashboard/addContest"
+                    className={({ isActive }) =>
+                      `flex items-center px-4 py-2 my-5  transition-colors duration-300 transform  hover:bg-gray-300   hover:text-gray-700 ${
+                        isActive
+                          ? "bg-gray-300  text-gray-700"
+                          : "text-gray-600"
+                      }`
+                    }
+                  >
+                    <span className="mx-4 font-medium">Add Contest</span>
+                  </NavLink>
+                  <NavLink
+                    to="/dashboard/myCreatedContest"
+                    className={({ isActive }) =>
+                      `flex items-center px-4 py-2 my-5  transition-colors duration-300 transform  hover:bg-gray-300   hover:text-gray-700 ${
+                        isActive
+                          ? "bg-gray-300  text-gray-700"
+                          : "text-gray-600"
+                      }`
+                    }
+                  >
+                    <span className="mx-4 font-medium">My Created Contest</span>
+                  </NavLink>
+                  <NavLink
+                    to="/dashboard/contestSubmit"
+                    className={({ isActive }) =>
+                      `flex items-center px-4 py-2 my-5  transition-colors duration-300 transform  hover:bg-gray-300   hover:text-gray-700 ${
+                        isActive
+                          ? "bg-gray-300  text-gray-700"
+                          : "text-gray-600"
+                      }`
+                    }
+                  >
+                    <span className="mx-4 font-medium">Contest Submitted </span>
+                  </NavLink>
+                </>
+              )}
+
               {/* Admin */}
-              <NavLink
-                to="/dashboard/manageUser"
-                className={({ isActive }) =>
-                  `flex items-center px-4 py-2 my-5  transition-colors duration-300 transform  hover:bg-gray-300   hover:text-gray-700 ${
-                    isActive ? "bg-gray-300  text-gray-700" : "text-gray-600"
-                  }`
-                }
-              >
-                <span className="mx-4 font-medium">Manage user</span>
-              </NavLink>
-              <NavLink
-                to="/dashboard/manageContests"
-                className={({ isActive }) =>
-                  `flex items-center px-4 py-2 my-5  transition-colors duration-300 transform  hover:bg-gray-300   hover:text-gray-700 ${
-                    isActive ? "bg-gray-300  text-gray-700" : "text-gray-600"
-                  }`
-                }
-              >
-                <span className="mx-4 font-medium">Manage Contests</span>
-              </NavLink>
+
+              {role === "Admin" && (
+                <>
+                  <NavLink
+                    to="/dashboard/manageUser"
+                    className={({ isActive }) =>
+                      `flex items-center px-4 py-2 my-5  transition-colors duration-300 transform  hover:bg-gray-300   hover:text-gray-700 ${
+                        isActive
+                          ? "bg-gray-300  text-gray-700"
+                          : "text-gray-600"
+                      }`
+                    }
+                  >
+                    <span className="mx-4 font-medium">Manage user</span>
+                  </NavLink>
+                  <NavLink
+                    to="/dashboard/manageContests"
+                    className={({ isActive }) =>
+                      `flex items-center px-4 py-2 my-5  transition-colors duration-300 transform  hover:bg-gray-300   hover:text-gray-700 ${
+                        isActive
+                          ? "bg-gray-300  text-gray-700"
+                          : "text-gray-600"
+                      }`
+                    }
+                  >
+                    <span className="mx-4 font-medium">Manage Contests</span>
+                  </NavLink>
+                </>
+              )}
             </nav>
           </div>
         </div>
