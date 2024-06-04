@@ -68,6 +68,7 @@ export default function MyCreatedContest() {
               <th>Status</th>
               <th>Action</th>
               <th>Submission</th>
+              <th>Comment</th>
             </tr>
           </thead>
           <tbody>
@@ -86,11 +87,18 @@ export default function MyCreatedContest() {
                 <td>${contest?.prizeMoney}</td>
                 <td>{contest?.contestType}</td>
                 <td>
-                  {" "}
-                  <div className="badge badge-warning">{contest?.status}</div>
+                  <div
+                    className={`badge ${
+                      contest?.status === "pending"
+                        ? "badge-warning"
+                        : "badge-success"
+                    }`}
+                  >
+                    {contest?.status}
+                  </div>
                 </td>
-                <td className="space-x-2">
-                  {status === "Block" ? (
+                <td className="space-x-2 space-y-2 ">
+                  {status === "Block" || contest?.status === "confirm"? (
                     <>
                       <button disabled className="btn text-xl">
                         <FiEdit />
@@ -133,6 +141,7 @@ export default function MyCreatedContest() {
                     </Link>
                   )}
                 </td>
+                <td className="w-[200px]">{contest?.comment}</td>
               </tr>
             ))}
           </tbody>
