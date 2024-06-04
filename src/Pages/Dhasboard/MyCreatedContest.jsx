@@ -5,10 +5,12 @@ import { MdDelete } from "react-icons/md";
 import { FiEdit } from "react-icons/fi";
 import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
+import useStatus from "../../Hooks/useStatus";
 
 export default function MyCreatedContest() {
   const { user, loading } = UseAuth();
   const axiosSecure = UseAxiosSecure();
+  const [status] = useStatus();
   const {
     data: contests = [],
     isLoading,
@@ -65,6 +67,7 @@ export default function MyCreatedContest() {
               <th>Contest Type</th>
               <th>Status</th>
               <th>Action</th>
+              <th>Submission</th>
             </tr>
           </thead>
           <tbody>
@@ -87,17 +90,48 @@ export default function MyCreatedContest() {
                   <div className="badge badge-warning">{contest?.status}</div>
                 </td>
                 <td className="space-x-2">
-                  <Link to={`/dashboard/contestUpdate/${contest?._id}`}>
-                    <button className="btn text-xl">
-                      <FiEdit />
+                  {status === "Block" ? (
+                    <>
+                      <button disabled className="btn text-xl">
+                        <FiEdit />
+                      </button>
+
+                      <button
+                        disabled
+                        onClick={() => handleDelete(contest?._id)}
+                        className="btn btn-error text-white text-xl"
+                      >
+                        <MdDelete />
+                      </button>
+                    </>
+                  ) : (
+                    <>
+                      <Link to={`/dashboard/contestUpdate/${contest?._id}`}>
+                        <button className="btn text-xl">
+                          <FiEdit />
+                        </button>
+                      </Link>
+                      <button
+                        onClick={() => handleDelete(contest?._id)}
+                        className="btn btn-error text-white text-xl"
+                      >
+                        <MdDelete />
+                      </button>
+                    </>
+                  )}
+                </td>
+                <td>
+                  {status === "Block" ? (
+                    <button disabled className="btn bg-[#00c1f1] text-white">
+                      Submission
                     </button>
-                  </Link>
-                  <button
-                    onClick={() => handleDelete(contest?._id)}
-                    className="btn btn-error text-white text-xl"
-                  >
-                    <MdDelete />
-                  </button>
+                  ) : (
+                    <Link to="/dashboard/contestSubmitted">
+                      <button className="btn bg-[#00c1f1] text-white">
+                        Submission
+                      </button>
+                    </Link>
+                  )}
                 </td>
               </tr>
             ))}

@@ -134,7 +134,7 @@ export default function Sidebar() {
                     <span className="mx-4 font-medium">My Created Contest</span>
                   </NavLink>
                   <NavLink
-                    to="/dashboard/contestSubmit"
+                    to="/dashboard/contestSubmitted"
                     className={({ isActive }) =>
                       `flex items-center px-4 py-2 my-5  transition-colors duration-300 transform  hover:bg-gray-300   hover:text-gray-700 ${
                         isActive
@@ -165,7 +165,7 @@ export default function Sidebar() {
                     <span className="mx-4 font-medium">Manage user</span>
                   </NavLink>
                   <NavLink
-                    to="/dashboard/manageContests"
+                    to="/dashboard/manageContest"
                     className={({ isActive }) =>
                       `flex items-center px-4 py-2 my-5  transition-colors duration-300 transform  hover:bg-gray-300   hover:text-gray-700 ${
                         isActive

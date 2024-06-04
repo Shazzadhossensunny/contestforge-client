@@ -12,6 +12,8 @@ import ManageUser from "../Pages/Dhasboard/ManageUser.jsx";
 import Payment from "../Pages/Payment.jsx";
 import MyCreatedContest from "../Pages/Dhasboard/MyCreatedContest.jsx";
 import ContestUpdate from "../Pages/Dhasboard/ContestUpdate.jsx";
+import ContestSubmitted from "../Pages/Dhasboard/ContestSubmitted.jsx";
+import ManageContest from "../Pages/Dhasboard/ManageContest.jsx";
 
 export const router = createBrowserRouter([
   {
@@ -67,10 +69,19 @@ export const router = createBrowserRouter([
           loader: ({params}) => fetch(`http://localhost:5000/addContest/${params.id}`)
 
         },
+        {
+          path: 'contestSubmitted',
+          element: <ContestSubmitted></ContestSubmitted>
+
+        },
         // admin
         {
           path: 'manageUser',
           element: <ManageUser></ManageUser>
+        },
+        {
+          path: 'manageContest',
+          element: <ManageContest></ManageContest>
         }
 
     ]

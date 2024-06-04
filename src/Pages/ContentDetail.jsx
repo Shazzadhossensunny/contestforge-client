@@ -1,11 +1,13 @@
 import { Link, useLoaderData } from "react-router-dom"
 import Countdown from 'react-countdown';
 import useRole from "../Hooks/useRole";
+import useStatus from "../Hooks/useStatus";
 
 
 export default function ContentDetail() {
   const contest = useLoaderData()
   const [role, isLoading] = useRole()
+  const [status] = useStatus();
   const Completionist = () => <span>Not Available</span>
   const renderer = ({ days, hours, minutes, seconds, completed }) => {
     if (completed) {
@@ -34,7 +36,7 @@ if(isLoading) return
        <Countdown date={new Date(contest?.contestDeadline)} renderer={renderer}></Countdown>
        </div>
        {/* <h4>{new Date(contest.contestDeadline).toLocaleString()}</h4> */}
-       {(role !== "Admin" && role !== "Creator") ? (
+       {(role !== "Admin" && role !== "Creator" && status === "Unblock") ? (
         <Link to={`/payment?prizeMoney=${contest?.prizeMoney}`}>
           <button className="btn bg-[#00c1f1] text-white text-lg">Registration</button>
         </Link>

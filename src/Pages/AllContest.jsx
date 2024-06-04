@@ -14,13 +14,16 @@ export default function AllContest() {
     },
   });
 
-  const imageDesign = contests.filter((content)=> content.contestType === "Image Design");
-  const marketingStrategy = contests.filter((content)=> content.contestType === "Marketing Strategy");
-  const articleWriting = contests.filter((content)=> content.contestType === "Article Writing");
-  const gamingReview = contests.filter((content)=> content.contestType === "Gaming Review");
-  const businessIdea = contests.filter((content)=> content.contestType === "Business Idea");
-  const bookReview = contests.filter((content)=> content.contestType === "Book Review");
-  const movieReview = contests.filter((content)=> content.contestType === "Movie Review");
+  // Filter contests by status
+  const confirmedContests = contests.filter((contest) => contest.status === "confirm" || "");
+ // Further filter contests by type
+  const imageDesign = confirmedContests.filter((content)=> content.contestType === "Image Design");
+  const marketingStrategy = confirmedContests.filter((content)=> content.contestType === "Marketing Strategy");
+  const articleWriting = confirmedContests.filter((content)=> content.contestType === "Article Writing");
+  const gamingReview = confirmedContests.filter((content)=> content.contestType === "Gaming Review");
+  const businessIdea = confirmedContests.filter((content)=> content.contestType === "Business Idea");
+  const bookReview = confirmedContests.filter((content)=> content.contestType === "Book Review");
+  const movieReview = confirmedContests.filter((content)=> content.contestType === "Movie Review");
 
 
   return (

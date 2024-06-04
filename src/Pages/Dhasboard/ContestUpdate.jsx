@@ -1,44 +1,41 @@
-
-
 import { useForm } from "react-hook-form";
 import { useLoaderData } from "react-router-dom";
 import UseAxiosSecure from "../../Hooks/UseAxiosSecure";
 import { toast } from "react-toastify";
+import useStatus from "../../Hooks/useStatus";
 
 export default function ContestUpdate() {
-    const contest = useLoaderData();
-    const axiosSecure = UseAxiosSecure()
-    const {
-        register,
-        handleSubmit,
-      } = useForm();
+  const contest = useLoaderData();
+  const axiosSecure = UseAxiosSecure();
+  const { register, handleSubmit } = useForm();
+  const [status] = useStatus();
 
-      // Convert contestDeadline to the required format
+  // Convert contestDeadline to the required format
   const formatDate = (dateString) => {
-    if (!dateString) return '';
+    if (!dateString) return "";
     const date = new Date(dateString);
     const year = date.getFullYear();
-    const month = String(date.getMonth() + 1).padStart(2, '0');
-    const day = String(date.getDate()).padStart(2, '0');
+    const month = String(date.getMonth() + 1).padStart(2, "0");
+    const day = String(date.getDate()).padStart(2, "0");
     return `${year}-${month}-${day}`;
   };
 
   const defaultDate = formatDate(contest?.contestDeadline);
 
-      const onSubmit = (data) => {
-       axiosSecure.patch(`/createdContes/${contest._id}`, data)
-       .then(res => {
-        if(res.data.modifiedCount> 0){
-           toast.success("contest update")
-        }
-       })
-
-      };
+  const onSubmit = (data) => {
+    axiosSecure.patch(`/createdContes/${contest._id}`, data).then((res) => {
+      if (res.data.modifiedCount > 0) {
+        toast.success("contest update");
+      }
+    });
+  };
 
   return (
     <div className="w-full lg:w-1/2 mx-auto">
-        <h2 className="text-center text-2xl lg:text-4xl font-semibold">Update Contest</h2>
-        <form onSubmit={handleSubmit(onSubmit)}>
+      <h2 className="text-center text-2xl lg:text-4xl font-semibold">
+        Update Contest
+      </h2>
+      <form onSubmit={handleSubmit(onSubmit)}>
         <div className="space-y-4">
           <div>
             <p className="font-bold mb-3">Contest Name</p>
@@ -49,7 +46,6 @@ export default function ContestUpdate() {
               placeholder="Type here"
               className="input input-bordered w-full"
             />
-
           </div>
           <div>
             <p className="font-bold mb-3">Email</p>
@@ -61,7 +57,6 @@ export default function ContestUpdate() {
               className="input input-bordered w-full"
               disabled
             />
-
           </div>
           <div>
             <p className="font-bold mb-3">Image</p>
@@ -72,7 +67,6 @@ export default function ContestUpdate() {
               placeholder="Image url"
               className="input input-bordered w-full"
             />
-
           </div>
           <div>
             <p className="font-bold mb-3">Contest Price</p>
@@ -83,7 +77,6 @@ export default function ContestUpdate() {
               placeholder="Type here"
               className="input input-bordered w-full"
             />
-
           </div>
           <div>
             <p className="font-bold mb-3">Prize Money</p>
@@ -94,11 +87,17 @@ export default function ContestUpdate() {
               placeholder="Type here"
               className="input input-bordered w-full"
             />
-
           </div>
           <div>
             <p className="font-bold mb-3">Contest Deadline</p>
-            <input type="date" {...register("contestDeadline")}  defaultValue={defaultDate} name="" id="" className="input input-bordered w-full" />
+            <input
+              type="date"
+              {...register("contestDeadline")}
+              defaultValue={defaultDate}
+              name=""
+              id=""
+              className="input input-bordered w-full"
+            />
           </div>
           <div>
             <p className="font-bold mb-3">Contest Type</p>
@@ -107,9 +106,7 @@ export default function ContestUpdate() {
               defaultValue={contest?.contestType}
               className="select select-bordered w-full"
             >
-              <option disabled>
-                Select Contest Type
-              </option>
+              <option disabled>Select Contest Type</option>
               <option value="Image Design">Image Design</option>
               <option value="Article Writing">Article Writing</option>
               <option value="Marketing Strategy">Marketing Strategy</option>
@@ -121,7 +118,6 @@ export default function ContestUpdate() {
               <option value="Business Idea">Business Idea</option>
               <option value="Movie Review">Movie Review</option>
             </select>
-
           </div>
           <div>
             <p className="font-bold mb-3">Status</p>
@@ -130,9 +126,9 @@ export default function ContestUpdate() {
               type="text"
               defaultValue={contest?.status}
               placeholder="Type here"
-              className="input input-bordered w-full"disabled
+              className="input input-bordered w-full"
+              disabled
             />
-
           </div>
           <div>
             <p className="font-bold mb-3">Contest Description</p>
@@ -142,7 +138,6 @@ export default function ContestUpdate() {
               className="textarea textarea-bordered w-full"
               placeholder="Type Here"
             ></textarea>
-
           </div>
           <div>
             <p className="font-bold mb-3">Task Submission</p>
@@ -152,13 +147,21 @@ export default function ContestUpdate() {
               className="textarea textarea-bordered w-full"
               placeholder="Type Here"
             ></textarea>
-
           </div>
         </div>
-        <button className="btn btn-block mt-4 text-white bg-[#00c1f1] text-lg">
-         Update
-        </button>
+        {status === "Block" ? (
+          <button
+            disabled
+            className="btn btn-block mt-4 text-white bg-[#00c1f1] text-lg"
+          >
+            Update
+          </button>
+        ) : (
+          <button className="btn btn-block mt-4 text-white bg-[#00c1f1] text-lg">
+            Update
+          </button>
+        )}
       </form>
     </div>
-  )
+  );
 }

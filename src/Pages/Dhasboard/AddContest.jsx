@@ -5,10 +5,12 @@ import { useForm } from "react-hook-form";
 import UseAxiosSecure from "../../Hooks/UseAxiosSecure";
 import { toast } from "react-toastify";
 import UseAuth from "../../Hooks/UseAuth";
+import useStatus from "../../Hooks/useStatus";
 export default function AddContest() {
   const [startDate, setStartDate] = useState(new Date());
   const axiosSecure = UseAxiosSecure();
-  const {user} = UseAuth();
+  const { user } = UseAuth();
+  const [status] = useStatus();
   const {
     register,
     handleSubmit,
@@ -21,15 +23,14 @@ export default function AddContest() {
       ...data,
       contestDeadline: startDate,
       email: user?.email,
-      status: "pending"
+      status: "pending",
     };
-    axiosSecure.post("/addContest", info)
-    .then(res => {
-      if(res.data.insertedId){
-        toast.success('Successfully Add Contest')
-        reset()
+    axiosSecure.post("/addContest", info).then((res) => {
+      if (res.data.insertedId) {
+        toast.success("Successfully Add Contest");
+        reset();
       }
-    })
+    });
   };
 
   return (
@@ -141,9 +142,20 @@ export default function AddContest() {
             )}
           </div>
         </div>
-        <button className="btn btn-block mt-4 text-white bg-[#00c1f1] text-lg">
-          Submit
-        </button>
+        {status === "Block" ? (
+          <button
+            disabled
+            className="btn btn-block mt-4 text-white bg-[#00c1f1] text-lg"
+          >
+            Submit
+          </button>
+        ) : (
+          <button
+            className="btn btn-block mt-4 text-white bg-[#00c1f1] text-lg"
+          >
+            Submit
+          </button>
+        )}
       </form>
     </div>
   );
