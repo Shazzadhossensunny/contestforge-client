@@ -10,6 +10,8 @@ import AllContest from "../Pages/AllContest.jsx";
 import ContentDetail from "../Pages/ContentDetail.jsx";
 import ManageUser from "../Pages/Dhasboard/ManageUser.jsx";
 import Payment from "../Pages/Payment.jsx";
+import MyCreatedContest from "../Pages/Dhasboard/MyCreatedContest.jsx";
+import ContestUpdate from "../Pages/Dhasboard/ContestUpdate.jsx";
 
 export const router = createBrowserRouter([
   {
@@ -53,6 +55,17 @@ export const router = createBrowserRouter([
         {
             path: 'addContest',
             element: <AddContest></AddContest>
+        },
+        {
+          path: 'myCreatedContest',
+          element: <MyCreatedContest></MyCreatedContest>
+
+        },
+        {
+          path: 'contestUpdate/:id',
+          element: <ContestUpdate></ContestUpdate>,
+          loader: ({params}) => fetch(`http://localhost:5000/addContest/${params.id}`)
+
         },
         // admin
         {
