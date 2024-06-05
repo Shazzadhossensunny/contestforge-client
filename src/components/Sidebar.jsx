@@ -64,7 +64,7 @@ export default function Sidebar() {
               {role === "User" && (
                 <>
                   <NavLink
-                    to="/dashboard/participated"
+                    to="/dashboard/participatedContest"
                     className={({ isActive }) =>
                       `flex items-center px-4 py-2 my-5  transition-colors duration-300 transform  hover:bg-gray-300   hover:text-gray-700 ${
                         isActive
@@ -88,7 +88,7 @@ export default function Sidebar() {
                     }
                   >
                     <span className="mx-4 font-medium">
-                      My Participated Contest
+                      My Winning Contest
                     </span>
                   </NavLink>
                   <NavLink
