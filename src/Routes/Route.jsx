@@ -15,6 +15,7 @@ import ContestUpdate from "../Pages/Dhasboard/ContestUpdate.jsx";
 import ContestSubmitted from "../Pages/Dhasboard/ContestSubmitted.jsx";
 import ManageContest from "../Pages/Dhasboard/ManageContest.jsx";
 import ParticipatedContest from "../Pages/Dhasboard/ParticipatedContest.jsx";
+import SubmittedUser from "../Pages/Dhasboard/SubmittedUser.jsx";
 
 export const router = createBrowserRouter([
   {
@@ -74,6 +75,11 @@ export const router = createBrowserRouter([
         {
           path: 'contestSubmitted',
           element: <ContestSubmitted></ContestSubmitted>
+
+        },
+        {
+          path: 'submittedUser/:name',
+          element: <SubmittedUser></SubmittedUser>
 
         },
         // admin
