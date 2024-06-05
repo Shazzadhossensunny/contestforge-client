@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 
 export default function SingleContestCard({ item }) {
-  const { _id, name, image, description } = item;
+  const { _id, name, image, description, participationCount } = item;
   return (
     <div className="card bg-base-100 shadow-xl">
       <figure>
@@ -9,7 +9,7 @@ export default function SingleContestCard({ item }) {
       </figure>
       <div className="card-body space-y-2">
         <h2 className="card-title">{name}</h2>
-        <h3 className="text-lg font-semibold">Participants : 0</h3>
+        <h3 className="text-lg font-semibold">Participants : { participationCount || 0}</h3>
         <p>{description}</p>
         <Link to={`/contentDetail/${_id}`}>
           <button  className="btn bg-[#00c1f1] text-white btn-block hover:text-black">Details</button>

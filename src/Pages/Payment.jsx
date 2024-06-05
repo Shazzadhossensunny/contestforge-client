@@ -7,8 +7,12 @@ import { useLocation } from "react-router-dom";
 const stripePromise = loadStripe(import.meta.env.VITE_PAYMENT_GATEWAY_PK);
 export default function Payment() {
     const location = useLocation();
-  const queryParams = new URLSearchParams(location.search);
-  const prizeMoney = queryParams.get("prizeMoney");
+  // const queryParams = new URLSearchParams(location.search);
+  // const prizeMoney = queryParams.get("prizeMoney");
+  const searchParams = new URLSearchParams(location.search);
+  const contest = Object.fromEntries(searchParams.entries());
+
+
 
 
   return (
@@ -21,7 +25,7 @@ export default function Payment() {
         </div>
         <div>
             <Elements stripe={stripePromise}>
-              <CheckoutForm prizeMoney={prizeMoney}></CheckoutForm>
+              <CheckoutForm contest={contest}></CheckoutForm>
             </Elements>
         </div>
 

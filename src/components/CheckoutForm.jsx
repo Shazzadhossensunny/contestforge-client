@@ -2,8 +2,9 @@ import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import { useEffect, useState } from "react";
 import UseAxiosSecure from "../Hooks/UseAxiosSecure";
 import UseAuth from "../Hooks/UseAuth";
+import { toast } from "react-toastify";
 
-export default function CheckoutForm({ prizeMoney }) {
+export default function CheckoutForm({ contest }) {
   const [error, setError] = useState("");
   const [clientSecret, setClientSecret] = useState("");
   const [transactionId, setTransactionId] = useState('');
@@ -11,7 +12,7 @@ export default function CheckoutForm({ prizeMoney }) {
   const elements = useElements();
   const axiosSecure = UseAxiosSecure();
   const {user} = UseAuth()
-  const totalPrice = parseInt(prizeMoney);
+  const totalPrice = parseInt(contest.prizeMoney);
 
   useEffect(() => {
     if (totalPrice > 0) {
@@ -64,6 +65,25 @@ else{
     if(paymentIntent.status === "succeeded"){
     console.log("transaction id", paymentIntent.id)
     setTransactionId(paymentIntent.id)
+    const payment = {
+      email: user?.email,
+      name:user?.displayName,
+      price: totalPrice,
+      transactionId: paymentIntent.id,
+      paymentStatus: 'success',
+      contestName: contest.name,
+      deadline: contest.contestDeadline
+    }
+
+    const res = await axiosSecure.post('/payment', payment)
+    if(res.data?.insertedId){
+      toast.success('Payment Success')
+    }
+
+    const res2 = await axiosSecure.patch(`/participationCount/${contest._id}`)
+    console.log(res2.data)
+
+
 
     }
 
