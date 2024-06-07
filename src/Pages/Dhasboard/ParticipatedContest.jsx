@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import UseAuth from "../../Hooks/UseAuth";
 import UseAxiosSecure from "../../Hooks/UseAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
+import Loading from "../../components/Loading";
 
 export default function ParticipatedContest() {
   const [sortedContests, setSortedContests] = useState([]);
@@ -38,7 +39,7 @@ export default function ParticipatedContest() {
     }
   }, [contests]);
 
-  if (loading || isLoading) return <div>Loading...</div>;
+  if (loading || isLoading) return <Loading></Loading>
   return (
     <div>
       <h2 className="text-center text-2xl lg:text-4xl font-semibold">

@@ -7,29 +7,13 @@ import SearchContestCard from "../../components/SearchContestCard";
 
 export default function Banner() {
   const [searchTerm, setSearchTerm] = useState('');
-
   const [results, setResults] = useState([]);
   const axiosCommon = UseAxiosCommon()
-  // const { data: contests = [], refetch } = useQuery({
-  //   queryKey: ['contest', searchTerm],
-  //   queryFn: async () => {
-  //     const res = await axiosCommon.get(`/search?q=${searchTerm}`);
-  //     return res.data;
-  //   },
-  //   enabled: !!searchTerm,
-  // });
-
-  // const handleSearch = () => {
-  //   refetch();
-  // };
-
   const handleSearch = async()=>{
     const res = await axiosCommon.get(`/search?q=${searchTerm}`)
     setResults(res.data)
   }
 
-
-  console.log(results)
   return (
     <div>
       <div className="h-[600px] relative">

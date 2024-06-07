@@ -4,6 +4,7 @@ import { MdDelete } from "react-icons/md";
 import Swal from "sweetalert2";
 import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
+import Loading from "../../components/Loading";
 
 
 export default function ManageUser() {
@@ -12,7 +13,7 @@ export default function ManageUser() {
 
     // users data
   const axiosSecure = UseAxiosSecure();
-  const { data: users = [], refetch } = useQuery({
+  const { data: users = [], refetch, isLoading } = useQuery({
     queryKey: ["users"],
     queryFn: async () => {
       const res = await axiosSecure.get("/users");
@@ -122,7 +123,7 @@ export default function ManageUser() {
       }
     });
   };
-
+if(isLoading) return <Loading></Loading>;
   return (
     <div>
       <h2 className="text-center text-2xl lg:text-4xl font-semibold">

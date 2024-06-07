@@ -19,3 +19,21 @@ body {
 .react-datepicker-wrapper {
   display: block !important;
 }
+.swiper-pagination-fraction,
+.swiper-pagination-custom,
+.swiper-horizontal > .swiper-pagination-bullets,
+.swiper-pagination-bullets.swiper-pagination-horizontal {
+  bottom: var(--swiper-pagination-bottom, -25px) !important;
+  top: var(--swiper-pagination-top, auto);
+  left: 0;
+  width: 100%;
+}
+
+.swiper-button-next,
+.swiper-rtl .swiper-button-prev {
+  display: none !important;
+}
+.swiper-button-prev,
+.swiper-rtl .swiper-button-next {
+  display: none !important;
+}

@@ -6,6 +6,7 @@ import { FiEdit } from "react-icons/fi";
 import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
 import useStatus from "../../Hooks/useStatus";
+import Loading from "../../components/Loading";
 
 export default function MyCreatedContest() {
   const { user, loading } = UseAuth();
@@ -48,7 +49,7 @@ export default function MyCreatedContest() {
     });
   };
 
-  if (loading || isLoading) return;
+  if (loading || isLoading) return <Loading></Loading>
   return (
     <div>
       <h2 className="text-center text-2xl lg:text-4xl font-semibold">

@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query"
 import UseAxiosSecure from "../../Hooks/UseAxiosSecure"
 import UseAuth from "../../Hooks/UseAuth"
 import Winning from "../../components/Winning"
+import Loading from "../../components/Loading"
 
 
 export default function WinningContest() {
@@ -17,7 +18,7 @@ export default function WinningContest() {
         enabled: !!user?.email
     })
     const finalWinnings = winnings.filter((winning) => winning?.winner === true )
-    if(loading || isLoading) return <p>Loading...</p>
+    if(loading || isLoading) return <Loading></Loading>
   return (
     <div>
         <h2 className="text-center text-2xl lg:text-4xl font-semibold">My Winning Contest</h2>

@@ -4,13 +4,16 @@ import UseAuth from "../Hooks/UseAuth";
 import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
 import UseAxiosCommon from "../Hooks/UseAxiosCommon";
+import Loading from "../components/Loading";
+
 
 export default function Login() {
-  const { logInUser, googleSignIn } = UseAuth();
+  const { logInUser, googleSignIn, loading } = UseAuth();
   const navigate = useNavigate();
   const location = useLocation();
   const from = location?.state || "/";
   const axiosCommon = UseAxiosCommon();
+
   const {
     register,
     handleSubmit,
@@ -37,6 +40,8 @@ export default function Login() {
           name: result.user?.displayName,
           email: result.user?.email,
           image: result.user?.photoURL,
+          role: "User",
+          status: "Unblock",
         };
         axiosCommon.post("/users", userInfo).then((res) => {
           console.log(res.data);
@@ -48,6 +53,9 @@ export default function Login() {
         console.log(error.message);
       });
   };
+
+  if(loading) return <Loading></Loading>
+
   return (
     <div className="hero min-h-screen bg-base-200">
       <div className="hero-content">

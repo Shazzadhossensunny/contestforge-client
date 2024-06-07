@@ -9,11 +9,15 @@ import { useForm } from "react-hook-form";
 import UseAuth from "../Hooks/UseAuth";
 import { toast } from "react-toastify";
 import UseAxiosCommon from "../Hooks/UseAxiosCommon";
+import Loading from "../components/Loading";
+
+
 
 export default function Register() {
   const [disabled, setDisabled] = useState(true);
-  const { createUser, updateUserProfile, user, setUser } = UseAuth();
+  const { createUser, updateUserProfile, user, setUser, loading } = UseAuth();
   const axiosCommon = UseAxiosCommon();
+
   const {
     register,
     handleSubmit,
@@ -42,6 +46,8 @@ export default function Register() {
             name: data.name,
             email: data.email,
             image: data.photo,
+            role: "User",
+            status: "Unblock",
           };
           axiosCommon.post("/users", userInfo).then((res) => {
             if (res.data.insertedId) {
@@ -52,6 +58,7 @@ export default function Register() {
                 photoURL: data.photo,
                 displayName: data.name,
               });
+
             }
           });
         });
@@ -70,7 +77,7 @@ export default function Register() {
       setDisabled(true);
     }
   };
-
+if(loading) return <Loading></Loading>
   return (
     <div className="hero min-h-screen bg-base-200">
       <div className="hero-content">

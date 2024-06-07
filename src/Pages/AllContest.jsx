@@ -3,10 +3,11 @@ import UseAxiosSecure from "../Hooks/UseAxiosSecure";
 import ContestCard from "../components/ContestCard";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
+import Loading from "../components/Loading";
 
 export default function AllContest() {
   const axiosSecure = UseAxiosSecure();
-  const { data: contests = [] } = useQuery({
+  const { data: contests = [], isLoading} = useQuery({
     queryKey: ["contests"],
     queryFn: async () => {
       const res = await axiosSecure.get("/addContest");
@@ -25,7 +26,7 @@ export default function AllContest() {
   const bookReview = confirmedContests.filter((content)=> content.contestType === "Book Review");
   const movieReview = confirmedContests.filter((content)=> content.contestType === "Movie Review");
 
-
+  if(isLoading) return <Loading></Loading>
   return (
     <div className="container mx-auto my-12 lg:my-24">
       <h2 className="text-4xl font-semibold text-center mb-10">All Contest</h2>

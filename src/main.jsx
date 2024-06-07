@@ -14,6 +14,9 @@ import {
   QueryClientProvider,
 } from "@tanstack/react-query";
 const queryClient = new QueryClient();
+import { register } from 'swiper/element/bundle';
+
+register();
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>

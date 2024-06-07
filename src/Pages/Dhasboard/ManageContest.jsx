@@ -3,6 +3,7 @@ import UseAxiosSecure from "../../Hooks/UseAxiosSecure";
 import Swal from "sweetalert2";
 import { toast } from "react-toastify";
 import { useState } from "react";
+import Loading from "../../components/Loading";
 
 export default function ManageContest() {
   const [selectedContestId, setSelectedContestId] = useState(null);
@@ -76,7 +77,7 @@ export default function ManageContest() {
     }
   };
 
-  if (isLoading) return;
+  if (isLoading) return <Loading></Loading>
   return (
     <div>
       <h2 className="text-center text-2xl lg:text-4xl font-semibold">

@@ -4,6 +4,7 @@ import UseAxiosSecure from "../../Hooks/UseAxiosSecure";
 import { PieChart, Pie, Cell, ResponsiveContainer, Legend, Tooltip } from "recharts";
 import { useForm } from "react-hook-form"
 import { toast } from "react-toastify";
+import Loading from "../../components/Loading";
 
 export default function MyProfile() {
   const { user, loading ,updateUserProfile} = UseAuth();
@@ -36,7 +37,7 @@ export default function MyProfile() {
     })
 }
 
-  if (loading || isLoading) return <div>Loading...</div>;
+  if (loading || isLoading) return <Loading></Loading>;
 
   const { contests, winPercentage } = userData || {
     contests: [],

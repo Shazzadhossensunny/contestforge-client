@@ -6,10 +6,11 @@ import UseAxiosSecure from "../../Hooks/UseAxiosSecure";
 import { toast } from "react-toastify";
 import UseAuth from "../../Hooks/UseAuth";
 import useStatus from "../../Hooks/useStatus";
+import Loading from "../../components/Loading";
 export default function AddContest() {
   const [startDate, setStartDate] = useState(new Date());
   const axiosSecure = UseAxiosSecure();
-  const { user } = UseAuth();
+  const { user, loading } = UseAuth();
   const [status] = useStatus();
   const {
     register,
@@ -22,6 +23,7 @@ export default function AddContest() {
     const info = {
       ...data,
       contestDeadline: startDate,
+      creatorName: user?.displayName,
       email: user?.email,
       status: "pending",
     };
@@ -32,6 +34,8 @@ export default function AddContest() {
       }
     });
   };
+
+  if(loading) return <Loading></Loading>
 
   return (
     <div className="w-full lg:w-1/2 mx-auto">

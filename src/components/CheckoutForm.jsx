@@ -14,6 +14,7 @@ export default function CheckoutForm({ contest }) {
   const {user} = UseAuth()
   const totalPrice = parseInt(contest.prizeMoney);
 
+
   useEffect(() => {
     if (totalPrice > 0) {
       axiosSecure
@@ -54,6 +55,7 @@ export default function CheckoutForm({ contest }) {
             email: user?.email || "anonymous",
             name: user?.displayName || "anonymous",
 
+
         }
     }
 })
@@ -68,6 +70,7 @@ else{
     const payment = {
       email: user?.email,
       name:user?.displayName,
+      photo: user?.photoURL,
       price: totalPrice,
       transactionId: paymentIntent.id,
       paymentStatus: 'success',

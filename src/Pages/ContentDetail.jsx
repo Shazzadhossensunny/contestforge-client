@@ -2,6 +2,7 @@ import { Link, useLoaderData } from "react-router-dom"
 import Countdown from 'react-countdown';
 import useRole from "../Hooks/useRole";
 import useStatus from "../Hooks/useStatus";
+import Loading from "../components/Loading";
 
 
 export default function ContentDetail() {
@@ -20,7 +21,7 @@ export default function ContentDetail() {
       );
     }
   };
-if(isLoading) return
+if(isLoading) return <Loading></Loading>
 const queryString = new URLSearchParams(contest).toString();
   return (
     <div className="container mx-auto my-12 lg:my-24">

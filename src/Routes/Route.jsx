@@ -18,6 +18,8 @@ import ParticipatedContest from "../Pages/Dhasboard/ParticipatedContest.jsx";
 import SubmittedUser from "../Pages/Dhasboard/SubmittedUser.jsx";
 import WinningContest from "../Pages/Dhasboard/WinningContest.jsx";
 import MyProfile from "../Pages/Dhasboard/MyProfile.jsx";
+import PrivateRoute from "../PrivateRoute/PrivateRoute.jsx";
+
 
 export const router = createBrowserRouter([
   {
@@ -36,7 +38,7 @@ export const router = createBrowserRouter([
         },
         {
           path: "/contentDetail/:id",
-          element: <ContentDetail></ContentDetail>,
+          element: <PrivateRoute><ContentDetail></ContentDetail></PrivateRoute>,
           loader: ({params}) => fetch(`http://localhost:5000/addContest/${params.id}`)
         },
         {
@@ -49,62 +51,63 @@ export const router = createBrowserRouter([
         },
         {
           path: "/payment",
-          element:<Payment></Payment>
+          element:<PrivateRoute><Payment></Payment></PrivateRoute>
 
         }
     ]
   },
   {
     path: 'dashboard',
-    element: <Dashboard></Dashboard>,
+    element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
     children: [
+
         // contest creator
         {
             path: 'addContest',
-            element: <AddContest></AddContest>
+            element: <PrivateRoute><AddContest></AddContest></PrivateRoute>
         },
         {
           path: 'myCreatedContest',
-          element: <MyCreatedContest></MyCreatedContest>
+          element: <PrivateRoute><MyCreatedContest></MyCreatedContest></PrivateRoute>
 
         },
         {
           path: 'contestUpdate/:id',
-          element: <ContestUpdate></ContestUpdate>,
+          element: <PrivateRoute><ContestUpdate></ContestUpdate></PrivateRoute>,
           loader: ({params}) => fetch(`http://localhost:5000/addContest/${params.id}`)
 
         },
         {
           path: 'contestSubmitted',
-          element: <ContestSubmitted></ContestSubmitted>
+          element: <PrivateRoute><ContestSubmitted></ContestSubmitted></PrivateRoute>
 
         },
         {
           path: 'submittedUser/:name',
-          element: <SubmittedUser></SubmittedUser>
+          element: <PrivateRoute><SubmittedUser></SubmittedUser></PrivateRoute>
 
         },
         // admin
         {
           path: 'manageUser',
-          element: <ManageUser></ManageUser>
+          element: <PrivateRoute><ManageUser></ManageUser></PrivateRoute>
         },
         {
           path: 'manageContest',
-          element: <ManageContest></ManageContest>
+          element: <PrivateRoute><ManageContest></ManageContest></PrivateRoute>
         },
         // user
         {
           path: 'participatedContest',
-          element: <ParticipatedContest></ParticipatedContest>
+          element: <PrivateRoute><ParticipatedContest></ParticipatedContest></PrivateRoute>
         },
         {
           path: 'winningContest',
-          element: <WinningContest></WinningContest>
+          element: <PrivateRoute><WinningContest></WinningContest></PrivateRoute>
         },
         {
           path: 'myProfile',
-          element: <MyProfile></MyProfile>
+          element: <PrivateRoute><MyProfile></MyProfile></PrivateRoute>
         }
 
     ]
