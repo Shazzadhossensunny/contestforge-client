@@ -65,6 +65,9 @@ export default function Navbar() {
               <li className="text-xl font-semibold">
                 <NavLink to="/allContest">All Contest</NavLink>
               </li>
+              <li className="text-xl font-semibold">
+              <NavLink to="/leaderBoard">LeaderBoard</NavLink>
+            </li>
             </ul>
           </div>
           <Link to="/" className="tex-lg lg:text-3xl font-bold">
@@ -78,6 +81,9 @@ export default function Navbar() {
             </li>
             <li className="text-xl font-semibold">
               <NavLink to="/allContest">All Contest</NavLink>
+            </li>
+            <li className="text-xl font-semibold">
+              <NavLink to="/leaderBoard">LeaderBoard</NavLink>
             </li>
           </ul>
         </div>

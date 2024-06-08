@@ -6,12 +6,12 @@ import { initializeApp } from "firebase/app";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyCQm6N07Upk9aKItYZNhbcsjitD7uoYEsc",
-  authDomain: "contestforge.firebaseapp.com",
-  projectId: "contestforge",
-  storageBucket: "contestforge.appspot.com",
-  messagingSenderId: "1090806175936",
-  appId: "1:1090806175936:web:1feb61e1566a7ff8a0f525"
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_FIREBASE_APP_ID
 };
 
 // Initialize Firebase

@@ -19,7 +19,7 @@ export default function PopularContest() {
 
   if (isLoading) return <Loading></Loading>;
   return (
-    <div className="container mx-auto mt-12 lg:mt-24">
+    <div className="container mx-auto mt-12 lg:mt-24 px-3">
       <h2 className="text-center text-2xl lg:text-4xl font-semibold">
         Popular Contest
       </h2>

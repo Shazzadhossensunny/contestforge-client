@@ -15,7 +15,7 @@ export default function JoinOurContest() {
       if (isLoading) return <Loading></Loading>;
       const { latestWinner, participationCount, totalWinnerCount } = stats;
   return (
-    <section className="advertise-section bg-gray-100 py-12 lg:py-24 mt-12 lg:mt-24">
+    <section className="advertise-section bg-gray-100 py-12 lg:py-24 mt-12 lg:mt-24 px-3">
     <div className="container mx-auto text-center">
       <h2 className="text-3xl lg:text-5xl font-semibold mb-8">Join Our Contests and Win Big!</h2>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">

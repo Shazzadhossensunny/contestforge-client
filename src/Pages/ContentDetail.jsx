@@ -24,7 +24,7 @@ export default function ContentDetail() {
 if(isLoading) return <Loading></Loading>
 const queryString = new URLSearchParams(contest).toString();
   return (
-    <div className="container mx-auto my-12 lg:my-24">
+    <div className="container mx-auto my-12 lg:my-24 px-3">
        <h2 className="text-2xl lg:text-4xl font-semibold text-center mb-3">{contest?.name}</h2>
        <div className="h-[500px]">
         <img className="w-full h-full object-cover" src={contest?.image} alt="" />

@@ -83,6 +83,7 @@ export default function AuthContextComponent({ children }) {
     logOut,
     updateUserProfile,
     googleSignIn,
+    setUser,
   };
   return (
     <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>

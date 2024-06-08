@@ -28,7 +28,7 @@ export default function AllContest() {
 
   if(isLoading) return <Loading></Loading>
   return (
-    <div className="container mx-auto my-12 lg:my-24">
+    <div className="container mx-auto my-12 lg:my-24 px-3">
       <h2 className="text-4xl font-semibold text-center mb-10">All Contest</h2>
       <Tabs>
         <TabList>

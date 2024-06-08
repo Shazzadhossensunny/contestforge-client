@@ -25,6 +25,7 @@ export default function AddContest() {
       contestDeadline: startDate,
       creatorName: user?.displayName,
       email: user?.email,
+      creatorPhoto: user?.photoURL,
       status: "pending",
     };
     axiosSecure.post("/addContest", info).then((res) => {
