@@ -1,7 +1,7 @@
 import axios from "axios"
 
 const axiosCommon = axios.create({
-    baseURL: 'http://localhost:5000'
+    baseURL: 'https://contestforge-server.vercel.app'
 })
 export default function UseAxiosCommon() {
   return axiosCommon;

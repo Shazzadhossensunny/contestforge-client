@@ -5,7 +5,7 @@ import UseAuth from "./UseAuth";
 
 
 const axiosSecure = axios.create({
-    baseURL: 'http://localhost:5000'
+    baseURL: 'https://contestforge-server.vercel.app'
 })
 const UseAxiosSecure = () => {
     const navigate = useNavigate();

@@ -44,7 +44,7 @@ export const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/addContest/${params.id}`),
+          fetch(`https://contestforge-server.vercel.app/addContest/${params.id}`),
       },
       {
         path: "/login",
@@ -106,7 +106,7 @@ export const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/addContest/${params.id}`),
+          fetch(`https://contestforge-server.vercel.app/addContest/${params.id}`),
       },
       {
         path: "contestSubmitted",

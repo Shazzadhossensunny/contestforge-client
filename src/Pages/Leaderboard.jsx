@@ -1,5 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import UseAxiosSecure from "../Hooks/UseAxiosSecure";
+import Loading from "../components/Loading";
 
 
 export default function Leaderboard() {
@@ -12,9 +13,7 @@ export default function Leaderboard() {
       }
     });
 
-    console.log(leaderboard)
-
-    if (isLoading) return <div>Loading...</div>;
+    if (isLoading) return <Loading></Loading>;
   return (
     <div className='my-12 lg:my-24 container mx-auto'>
       <h2 className="text-center text-2xl lg:text-4xl font-semibold mb-8">
