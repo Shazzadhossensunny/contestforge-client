@@ -10,18 +10,6 @@ Category name
 
 Website Live Link
 
-Admin
-User:rohim@gmail.com
-pass: 123456
-
-Creator
-User : ayaan@gmail.com
-pass: 123456
-User :amir@khan.com
-pass: 123456
-User: sonia@gmail.com
-pass:123456
-
 ## Features
 
 - User can register in a Contest by making payment
