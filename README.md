@@ -2,10 +2,6 @@
 
 Website Name
 
-# Assignment12_category_0006
-
-Category name
-
 ## https://contestforge.web.app/
 
 Website Live Link
