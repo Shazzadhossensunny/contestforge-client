@@ -1,20 +1,25 @@
-# ContestForge
-
-Website Name
-
-## https://contestforge.web.app/
-
-Website Live Link
+# Project Concept
+ContestForge website offers a platform for users to participate in various online contests. Users can compete and win prizes. Each contest requires an entry fee, and winners are announced at the end.
 
 ## Features
 
-- User can register in a Contest by making payment
-- User can update profile on his dashboard
-- Admin can block and unblock user and create
-- Admin can change roles of users and creats
-- Admin can delete created contest
+- Users can register in a Contest by making a payment
 - If the admin confirms the contest, it is published on the website
-- Admin can comment creator for created contest
-- Creators can host contests for contests
-- Creator can announcement win contest participants
-- The creator can edit and delete contest before admin apporve
+- Creator can announce win contest participants
+
+## Technology
+
+- Tailwind
+- DaisyUI
+- ReactJS
+- Firebase
+- Node JS
+- Express JS
+- MongoDB
+
+## Clone Project Run Locally
+
+- npm install
+- Set Up Environment Variables .env file for Firebase and MongoDB
+- npm run dev for client
+- nodemon start for server run
